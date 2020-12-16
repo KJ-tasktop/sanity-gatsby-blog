@@ -88,7 +88,7 @@ const SecondaryNav = styled.div`
 `
 
 const Header = ({ showNav, siteTitle, scrolled, primaryNavMenu, secondaryNavMenu, textWhite = true }) => {
-	console.log('header.js - secondaryNavMenu: ', secondaryNavMenu)
+	// console.log('header.js - secondaryNavMenu: ', secondaryNavMenu)
 	// console.log('header.js - primaryNavMenu: ', primaryNavMenu)
 
 	const { left, right } = primaryNavMenu

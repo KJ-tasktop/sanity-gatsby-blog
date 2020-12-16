@@ -53,7 +53,7 @@ export const query = graphql`
 const Page = (props) => {
 	const { data, errors } = props
 	console.log('errors: ', errors)
-	console.log('data: ', data)
+	// console.log('data: ', data)
 
 	if (errors) {
 		return (

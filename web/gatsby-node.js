@@ -38,8 +38,9 @@ async function createBlogPostPages(pathPrefix = '/blog', graphql, actions, repor
 		})
 }
 
-async function createLandingPages(pathPrefix = '/', graphql, actions, reporter) {
+async function createLandingPages(pathPrefix = './', graphql, actions, reporter) {
 	const { createPage } = actions
+
 	const result = await graphql(`
 		{
 			allSanityPage(filter: { slug: { current: { ne: null } } }) {

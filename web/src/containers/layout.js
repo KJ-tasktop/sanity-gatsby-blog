@@ -42,7 +42,7 @@ function LayoutContainer(props) {
 	// function handleHideNav() {
 	// 	setShowNav(false)
 	// }
-	console.log('Layout Container Props: ', props)
+	// console.log('Layout Container Props: ', props)
 	return (
 		<StaticQuery
 			query={query}
@@ -52,7 +52,7 @@ function LayoutContainer(props) {
 						'Missing "Site settings". Open the Studio at http://localhost:3333 and some content in "Site settings"'
 					)
 				}
-				console.log('Query (layout container) - data.nav: ', data.nav)
+				// console.log('Query (layout container) - data.nav: ', data.nav)
 				return (
 					<Layout
 						{...props}
