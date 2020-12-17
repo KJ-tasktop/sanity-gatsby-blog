@@ -12,8 +12,8 @@ const NavStyles = styled.nav`
 	grid-template-columns: 200px 400px 500px;
 	gap: 50px;
 	margin: 0;
-	background-color: #fff;
-	border: 2px solid rebeccapurple;
+	background-color: rebeccapurple;
+	border: 2px solid springgreen;
 
 	li {
 		list-style: none;
@@ -23,10 +23,10 @@ const NavStyles = styled.nav`
 
 	a {
 		text-decoration: none;
-		color: #000;
+		color: #fff;
 
 		&:hover {
-			color: var(--green);
+			color: var(--yellow);
 		}
 	}
 
