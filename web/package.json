@@ -1,8 +1,8 @@
 {
 	"private": true,
-	"name": "sanity-gatsby-blog-web",
+	"name": "tasktop-dot-com-v2-web",
 	"version": "1.0.5",
-	"author": "Sanity <hello@sanity.io>",
+	"author": "Tasktop <website@tasktop.com>",
 	"scripts": {
 		"build": "npm run clean-cache && cross-env NODE_OPTIONS=\"-r esm\" gatsby build",
 		"clean-cache": "gatsby clean",

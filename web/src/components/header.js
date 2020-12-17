@@ -13,7 +13,7 @@ const NavStyles = styled.nav`
 	gap: 50px;
 	margin: 0;
 	background-color: #fff;
-	border: 2px solid var(--yellow);
+	border: 2px solid rebeccapurple;
 
 	li {
 		list-style: none;
@@ -63,7 +63,7 @@ const RightSideNav = styled.ul`
 `
 
 const SecondaryNav = styled.div`
-	background-color: var(--green);
+	background-color: var(--yellow);
 
 	ul {
 		display: flex;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../containers/layout'
-import Container from '../components/container'
+import LayoutContainer from '../containers/layout'
+// import Container from '../components/container'
 import SEO from '../components/seo'
 import GraphQLErrorList from '../components/graphql-error-list'
 
@@ -20,58 +20,44 @@ export const query = graphql`
 			slug {
 				current
 			}
-			# navMenu {
-			# 	items {
-			# 		landingPageRoute {
-			# 			title
-			# 			slug {
-			# 				current
-			# 			}
+		}
+		site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
+			# 	primaryColor {
+			# 		hex
+			# 	}
+			# 	secondaryColor {
+			# 		hex
+			# 	}
+			title
+			# 	openGraph {
+			# 		title
+			# 		description
+			# 		image {
+			# 			...SanityImage
 			# 		}
 			# 	}
-			# }
 		}
-		# site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-		# 	primaryColor {
-		# 		hex
-		# 	}
-		# 	secondaryColor {
-		# 		hex
-		# 	}
-		# 	title
-		# 	openGraph {
-		# 		title
-		# 		description
-		# 		image {
-		# 			...SanityImage
-		# 		}
-		# 	}
-		# }
 	}
 `
 
 const Page = (props) => {
 	const { data, errors } = props
-	console.log('errors: ', errors)
-	// console.log('data: ', data)
 
 	if (errors) {
 		return (
-			<Layout>
+			<LayoutContainer>
 				<GraphQLErrorList errors={errors} />
-			</Layout>
+			</LayoutContainer>
 		)
 	}
 
-	// const { site } = data || {}
+	const { page, site } = data || {}
 
-	// if (!site) {
-	// 	throw new Error(
-	// 		'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-	// 	)
-	// }
-
-	const { page } = data /* || data.route.page */
+	if (!site) {
+		throw new Error(
+			'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
+		)
+	}
 
 	const content = (page._rawContent || [])
 		.filter((c) => !c.disabled)
@@ -111,19 +97,13 @@ const Page = (props) => {
 			return el
 		})
 
-	// const primaryNavMenuItems = data.navMenu
 	const secondaryNavMenuItems = page.navMenu && (page.navMenu.items || [])
 	console.log('secondaryNavMenuItems: ', secondaryNavMenuItems)
+
 	// const pageTitle = data.route && !data.route.useSiteTitle && page.title
 
-	// console.log('data: ', data)
-	// console.log('data.route: ', data.route)
-	// console.log('page.title: ', page.title)
-	// console.log('pageTitle: ', pageTitle)
-
-	// <Layout /* primaryNavMenu={primaryNavMenuItems} */ secondaryNavMenu={secondaryNavMenuItems} textWhite>
 	return (
-		<Layout secondaryNavMenu={secondaryNavMenuItems}>
+		<LayoutContainer secondaryNavMenu={secondaryNavMenuItems}>
 			<h1>This is the Layout in the Page Template</h1>
 			{/* <SEO
 			title={pageTitle}
@@ -135,7 +115,7 @@ const Page = (props) => {
 			gradient={gradient}
 		/> */}
 			<div>{content}</div>
-		</Layout>
+		</LayoutContainer>
 	)
 }
 
