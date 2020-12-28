@@ -12,8 +12,8 @@ const NavStyles = styled.nav`
 	grid-template-columns: 200px 400px 500px;
 	gap: 50px;
 	margin: 0;
-	background-color: rebeccapurple;
-	border: 2px solid springgreen;
+	background-color: springgreen;
+	border: 2px solid rebeccapurple;
 
 	li {
 		list-style: none;
