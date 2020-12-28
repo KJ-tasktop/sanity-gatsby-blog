@@ -3,10 +3,6 @@ require('dotenv').config({
 	path: `.env.${process.env.NODE_ENV || 'development'}`,
 })
 
-// import dotenv from 'dotenv'
-
-// dotenv.config({ path: '.env' })
-// const path = require('path')
 const clientConfig = require('./client-config')
 
 const isProd = process.env.NODE_ENV === 'production'
