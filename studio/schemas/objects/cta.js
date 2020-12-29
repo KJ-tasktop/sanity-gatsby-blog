@@ -15,13 +15,6 @@ export default {
 			name: 'title',
 			type: 'string',
 		},
-		// {
-		// 	title: 'Top Level Landing page',
-		// 	name: 'topLevelLandingPageRoute',
-		// 	type: 'reference',
-		// 	fieldset: 'link',
-		// 	to: [{ type: 'topLevel' }],
-		// },
 		{
 			title: 'Landing page',
 			name: 'landingPageRoute',

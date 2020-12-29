@@ -98,13 +98,12 @@ const Page = (props) => {
 		})
 
 	const secondaryNavMenuItems = page.navMenu && (page.navMenu.items || [])
-	console.log('secondaryNavMenuItems: ', secondaryNavMenuItems)
+	console.log('page template')
 
 	// const pageTitle = data.route && !data.route.useSiteTitle && page.title
 
 	return (
 		<LayoutContainer secondaryNavMenu={secondaryNavMenuItems}>
-			<h1>This is the Layout in the Page Template</h1>
 			{/* <SEO
 			title={pageTitle}
 			description={site.description}

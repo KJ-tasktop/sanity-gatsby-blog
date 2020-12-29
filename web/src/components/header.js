@@ -12,7 +12,7 @@ const NavStyles = styled.nav`
 	grid-template-columns: 200px 400px 500px;
 	gap: 50px;
 	margin: 0;
-	background-color: springgreen;
+	background-color: darkgoldenrod;
 	border: 2px solid rebeccapurple;
 
 	li {
@@ -82,13 +82,13 @@ const SecondaryNav = styled.div`
 		color: #fff;
 
 		&:hover {
-			color: #000;
+			color: rebeccapurple;
 		}
 	}
 `
 
 const Header = ({ showNav, siteTitle, scrolled, primaryNavMenu, secondaryNavMenu, textWhite = true }) => {
-	// console.log('header.js - secondaryNavMenu: ', secondaryNavMenu)
+	console.log('header.js - secondaryNavMenu: ', secondaryNavMenu)
 	// console.log('header.js - primaryNavMenu: ', primaryNavMenu)
 
 	const { left, right } = primaryNavMenu

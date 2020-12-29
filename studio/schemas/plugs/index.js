@@ -1,7 +1,7 @@
 export { default as hero } from './Hero'
 // export { default as infoRows } from './infoRows'
 // export { default as textWithIllustration } from './textWithIllustration'
-// export { default as illustration } from './illustration'
+export { default as illustration } from './illustration'
 // export { default as ctaColumns } from './ctaColumns'
 // export { default as ctaPlug } from './ctaPlug'
 // export { default as uiComponentRef } from './uiComponent'

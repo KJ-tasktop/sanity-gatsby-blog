@@ -29,6 +29,7 @@ import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
+import simpleBlockContent from './objects/simpleBlockContent'
 
 // Plugs are the individual page components
 const allPlugs = Object.values(plugs).map((plug) => ({...plug, fields: plugDefaultFields.concat(plug.fields)}))
@@ -55,7 +56,8 @@ export default createSchema({
         // topLevel,
 		author,
 		mainImage,
-		authorReference,
+        authorReference,
+        simpleBlockContent,
 		bodyPortableText,
 		bioPortableText,
 		excerptPortableText,

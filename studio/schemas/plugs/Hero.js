@@ -12,14 +12,14 @@ export default {
 			type: 'string',
 			title: 'Heading',
 		},
-		// {
-		// 	name: 'tagline',
-		// 	type: 'simpleBlockContent',
-		// },
-		// {
-		// 	name: 'illustration',
-		// 	type: 'illustration',
-		// },
+		{
+			name: 'tagline',
+			type: 'simpleBlockContent',
+		},
+		{
+			name: 'illustration',
+			type: 'illustration',
+		},
 		{
 			name: 'cta',
 			type: 'cta',
