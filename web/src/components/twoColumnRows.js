@@ -19,6 +19,10 @@ const LeftSide = styled.div`
 	align-items: flex-start;
 	padding: 24px;
 	width: 40%;
+
+	img {
+		width: 100%;
+	}
 `
 
 const RightSide = styled.div`
@@ -31,27 +35,24 @@ const RightSide = styled.div`
 
 const maybeImage = (illustration) => {
 	let img = null
-	if (illustration && illustration.image && illustration.image.asset && !illustration.disabled) {
+	if (illustration && illustration.disabled !== true && illustration.image && illustration.image.asset) {
 		const fluidProps = getFluidGatsbyImage(illustration.image.asset._id, { maxWidth: 960 }, clientConfig.sanity)
 
-		img = <img src={fluidProps.src} alt={illustration.image.alt} />
+		img = <img className="w-full sm:h-64 mx-auto" src={fluidProps.src} alt={illustration.image.alt} />
 	}
 	return img
 }
 
-function Hero({ label, heading, tagline, cta, illustration }) {
-	console.log('Hero')
-	console.table('Hero props: ', label, heading, tagline, cta, illustration)
+const InfoRow = ({ label, heading, text, cta, illustration }) => {
 	const img = maybeImage(illustration)
 	return (
 		<ComponentWrapper>
-			{/* Left col */}
 			<LeftSide>
 				<p>{label}</p>
 				<h1>{heading}</h1>
-				{tagline && (
+				{text && (
 					<div>
-						<PortableText blocks={tagline} />
+						<PortableText blocks={text} />
 					</div>
 				)}
 				{cta && cta.title && (
@@ -61,10 +62,42 @@ function Hero({ label, heading, tagline, cta, illustration }) {
 					/>
 				)}
 			</LeftSide>
-			{/* Right col */}
-			<RightSide>{img}</RightSide>
+			{img && <RightSide>{img}</RightSide>}
 		</ComponentWrapper>
 	)
 }
 
-export default Hero
+const InfoRowFlipped = ({ label, heading, text, cta, illustration }) => {
+	const img = maybeImage(illustration)
+	return (
+		<ComponentWrapper>
+			{img && <LeftSide>{img}</LeftSide>}
+			<RightSide>
+				<p>{label}</p>
+				<h1>{heading}</h1>
+				{text && (
+					<div>
+						<PortableText blocks={text} />
+					</div>
+				)}
+				{cta && cta.title && <CTALink {...cta} />}
+			</RightSide>
+		</ComponentWrapper>
+	)
+}
+
+// function TwoColumnRow({ label, heading, text, cta, illustration }) {
+function TwoColumnRow({ title, rows }) {
+	const contentRows = (rows || [])
+		.filter((r) => !r.disabled)
+		.map((r, i) => (i % 2 === 0 ? <InfoRow key={r._key} {...r} /> : <InfoRowFlipped key={r._key} {...r} />))
+
+	return (
+		<>
+			<h1>{title}</h1>
+			{contentRows}
+		</>
+	)
+}
+
+export default TwoColumnRow

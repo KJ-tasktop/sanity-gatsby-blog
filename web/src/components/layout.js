@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 import Header from './header'
 
 import '../styles/layout.css'
 import styles from './layout.module.css'
 import GlobalStyles from '../styles/GlobalStyles'
+
+const ContentWrapper = styled.div`
+	width: 1200px;
+	border: 3px solid red;
+	margin: 0 auto;
+`
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, primaryNavMenu, secondaryNavMenu, siteTitle }) => (
 	<>
@@ -16,7 +23,7 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, primaryNavMenu, secon
 			onShowNav={onShowNav}
 			showNav={showNav}
 		/>
-		<div className={styles.content}>{children}</div>
+		<ContentWrapper className={styles.content}>{children}</ContentWrapper>
 		<footer className={styles.footer}>
 			<div className={styles.footerWrapper}>
 				<div className={styles.siteInfo}>

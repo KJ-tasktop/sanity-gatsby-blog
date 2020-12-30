@@ -4,8 +4,6 @@ html {
 	font-family: var(--font-family-sans);
 	font-size: var(--font-base-size);
 	line-height: var(--font-base-line-height);
-	background-color: rebeccapurple;
-	color: springgreen;
 }
 
 body {

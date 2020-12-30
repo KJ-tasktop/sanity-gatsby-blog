@@ -6,14 +6,23 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+// import ContentWrapper from '../containers/contentWrapper'
 
-const NavStyles = styled.nav`
+const Nav = styled.nav`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	/* height: 50px; */
+	background-color: #fff;
+`
+
+const NavStyles = styled.div`
 	display: grid;
-	grid-template-columns: 200px 400px 500px;
+	grid-template-columns: 150px 400px 300px;
 	gap: 50px;
 	margin: 0;
-	background-color: darkgoldenrod;
-	border: 2px solid rebeccapurple;
 
 	li {
 		list-style: none;
@@ -23,10 +32,13 @@ const NavStyles = styled.nav`
 
 	a {
 		text-decoration: none;
-		color: #fff;
+		color: #000;
 
-		&:hover {
-			color: var(--yellow);
+		&:hover,
+		&.active {
+			color: var(--green);
+			border-bottom: 2px solid #000;
+			padding-bottom: 14px;
 		}
 	}
 
@@ -39,7 +51,7 @@ const NavStyles = styled.nav`
 
 const Logo = styled.div`
 	width: 200px;
-	height: 60px;
+	height: 50px;
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -63,26 +75,34 @@ const RightSideNav = styled.ul`
 `
 
 const SecondaryNav = styled.div`
-	background-color: var(--yellow);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--grey);
+	width: 100%;
+	height: 40px;
+`
 
-	ul {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-	}
+const SecondaryNavStyles = styled.ul`
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 20px;
+	width: 950px;
+	margin: 0;
+	padding: 0;
 
 	li {
 		list-style: none;
-		text-align: center;
 		margin-bottom: 0;
 	}
 
 	a {
 		text-decoration: none;
-		color: #fff;
+		color: #000;
 
-		&:hover {
-			color: rebeccapurple;
+		&:hover,
+		&.active {
+			color: var(--green);
 		}
 	}
 `
@@ -94,48 +114,54 @@ const Header = ({ showNav, siteTitle, scrolled, primaryNavMenu, secondaryNavMenu
 	const { left, right } = primaryNavMenu
 	return (
 		<>
-			<NavStyles id="header">
-				<div>
-					<Link id="siteTitle" className="tt-logo" to="/">
-						<Logo />
-					</Link>
-				</div>
+			<Nav id="header">
+				<NavStyles>
+					{/* <ContentWrapper> */}
+					<div>
+						<Link id="siteTitle" className="tt-logo" to="/">
+							<Logo />
+						</Link>
+					</div>
 
-				<LeftSideNav>
-					{/* <p>Left Side</p> */}
-					{left.map((leftSideNavItem) => (
-						<li key={leftSideNavItem._key}>
-							<Link to={`/${leftSideNavItem.landingPageRoute.slug.current}`}>
-								{leftSideNavItem.title}
-							</Link>
-						</li>
-					))}
-				</LeftSideNav>
-				<RightSideNav>
-					{/* <p>Right Side</p> */}
-					{right.map((rightSideNavItem) => (
-						<li key={rightSideNavItem._key}>
-							<Link to={`/${rightSideNavItem.landingPageRoute.slug.current}`}>
-								{rightSideNavItem.title}
-							</Link>
-						</li>
-					))}
-				</RightSideNav>
-			</NavStyles>
-
-			{secondaryNavMenu && (
-				<SecondaryNav>
-					<ul>
-						{secondaryNavMenu.map((secondaryNavMenuItem) => (
-							<li key={secondaryNavMenuItem.landingPageRoute.id}>
-								<Link to={`/${secondaryNavMenuItem.landingPageRoute.slug.current}`}>
-									{secondaryNavMenuItem.landingPageRoute.title}
+					<LeftSideNav>
+						{left.map((leftSideNavItem) => (
+							<li key={leftSideNavItem._key}>
+								<Link to={`/${leftSideNavItem.landingPageRoute.slug.current}`} activeClassName="active">
+									{leftSideNavItem.title}
 								</Link>
 							</li>
 						))}
-					</ul>
-				</SecondaryNav>
-			)}
+					</LeftSideNav>
+					<RightSideNav>
+						{right.map((rightSideNavItem) => (
+							<li key={rightSideNavItem._key}>
+								<Link
+									to={`/${rightSideNavItem.landingPageRoute.slug.current}`}
+									activeClassName="active"
+								>
+									{rightSideNavItem.title}
+								</Link>
+							</li>
+						))}
+					</RightSideNav>
+				</NavStyles>
+				{secondaryNavMenu && (
+					<SecondaryNav>
+						<SecondaryNavStyles>
+							{secondaryNavMenu.map((secondaryNavMenuItem) => (
+								<li key={secondaryNavMenuItem.landingPageRoute.id}>
+									<Link
+										to={`/${secondaryNavMenuItem.landingPageRoute.slug.current}`}
+										activeClassName="active"
+									>
+										{secondaryNavMenuItem.landingPageRoute.title}
+									</Link>
+								</li>
+							))}
+						</SecondaryNavStyles>
+					</SecondaryNav>
+				)}
+			</Nav>
 		</>
 	)
 }

@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'infoRows',
-  title: 'Info rows',
+  name: 'twoColumn',
+  title: 'Two Column Rows',
   fields: [
     {
       type: 'string',

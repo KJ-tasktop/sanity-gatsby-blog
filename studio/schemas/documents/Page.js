@@ -63,7 +63,7 @@ export default {
 				// { type: 'pricing' },
 				// { type: 'uiComponentRef' },
 				{ type: 'hero' },
-				// { type: 'infoRows' },
+				{ type: 'twoColumn' },
 				// { type: 'ctaColumns' },
 				// { type: 'ctaPlug' },
 			],

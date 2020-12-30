@@ -6,6 +6,7 @@ import SEO from '../components/seo'
 import GraphQLErrorList from '../components/graphql-error-list'
 
 import Hero from '../components/Hero'
+import TwoColumnRow from '../components/twoColumnRows'
 // import InfoRows from '../components/InfoRows'
 // import CTAColumns from '../components/cta-columns'
 // import CTA from '../components/cta'
@@ -59,6 +60,7 @@ const Page = (props) => {
 		)
 	}
 
+	console.log('page: ', page)
 	const content = (page._rawContent || [])
 		.filter((c) => !c.disabled)
 		.map((c, i) => {
@@ -67,9 +69,9 @@ const Page = (props) => {
 				// case 'pricing':
 				// 	el = <Pricing key={c._key} {...c} />
 				// 	break
-				// case 'infoRows':
-				// 	el = <InfoRows key={c._key} {...c} />
-				// 	break
+				case 'twoColumn':
+					el = <TwoColumnRow key={c._key} {...c} />
+					break
 				case 'hero':
 					el = <Hero key={c._key} {...c} />
 					break
@@ -97,10 +99,10 @@ const Page = (props) => {
 			return el
 		})
 
-	const secondaryNavMenuItems = page.navMenu && (page.navMenu.items || [])
+	console.log('content: ', content)
 	console.log('page template')
 
-	// const pageTitle = data.route && !data.route.useSiteTitle && page.title
+	const secondaryNavMenuItems = page.navMenu && (page.navMenu.items || [])
 
 	return (
 		<LayoutContainer secondaryNavMenu={secondaryNavMenuItems}>
