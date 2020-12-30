@@ -60,7 +60,6 @@ const Page = (props) => {
 		)
 	}
 
-	console.log('page: ', page)
 	const content = (page._rawContent || [])
 		.filter((c) => !c.disabled)
 		.map((c, i) => {
@@ -98,9 +97,6 @@ const Page = (props) => {
 			}
 			return el
 		})
-
-	console.log('content: ', content)
-	console.log('page template')
 
 	const secondaryNavMenuItems = page.navMenu && (page.navMenu.items || [])
 

@@ -40,8 +40,6 @@ const maybeImage = (illustration) => {
 }
 
 function Hero({ label, heading, tagline, cta, illustration }) {
-	console.log('Hero')
-	console.table('Hero props: ', label, heading, tagline, cta, illustration)
 	const img = maybeImage(illustration)
 	return (
 		<ComponentWrapper>

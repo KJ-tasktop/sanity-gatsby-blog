@@ -86,7 +86,6 @@ const InfoRowFlipped = ({ label, heading, text, cta, illustration }) => {
 	)
 }
 
-// function TwoColumnRow({ label, heading, text, cta, illustration }) {
 function TwoColumnRow({ title, rows }) {
 	const contentRows = (rows || [])
 		.filter((r) => !r.disabled)
