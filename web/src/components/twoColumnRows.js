@@ -5,6 +5,7 @@ import PortableText from './portableText'
 import clientConfig from '../../client-config'
 // import ContentWrapper from '../containers/contentWrapper'
 import CTALink from './CTALink'
+import Video from './video'
 
 const ComponentWrapper = styled.div`
 	width: 1200px;
@@ -43,7 +44,7 @@ const maybeImage = (illustration) => {
 	return img
 }
 
-const InfoRow = ({ label, heading, text, cta, illustration }) => {
+const InfoRow = ({ label, heading, text, cta, illustration, video }) => {
 	const img = maybeImage(illustration)
 	return (
 		<ComponentWrapper>
@@ -63,15 +64,25 @@ const InfoRow = ({ label, heading, text, cta, illustration }) => {
 				)}
 			</LeftSide>
 			{img && <RightSide>{img}</RightSide>}
+			{video && (
+				<RightSide>
+					<Video video={video} />
+				</RightSide>
+			)}
 		</ComponentWrapper>
 	)
 }
 
-const InfoRowFlipped = ({ label, heading, text, cta, illustration }) => {
+const InfoRowFlipped = ({ label, heading, text, cta, illustration, video }) => {
 	const img = maybeImage(illustration)
 	return (
 		<ComponentWrapper>
 			{img && <LeftSide>{img}</LeftSide>}
+			{video && (
+				<LeftSide>
+					<Video />
+				</LeftSide>
+			)}
 			<RightSide>
 				<p>{label}</p>
 				<h1>{heading}</h1>
@@ -91,6 +102,7 @@ function TwoColumnRow({ title, rows }) {
 		.filter((r) => !r.disabled)
 		.map((r, i) => (i % 2 === 0 ? <InfoRow key={r._key} {...r} /> : <InfoRowFlipped key={r._key} {...r} />))
 
+	console.log('contentRows: ', contentRows)
 	return (
 		<>
 			<h1>{title}</h1>

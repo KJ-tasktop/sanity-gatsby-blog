@@ -17,7 +17,8 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "@sanity/vision"
+    "@sanity/vision",
+    "mux-input"
   ],
   "parts": [
     {
@@ -33,12 +34,12 @@
       "path": "./src/dashboardConfig.js"
     },
     {
-        "implements": "part:@sanity/base/brand-logo",
-        "path": "./logo/myLogo.js"
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./logo/myLogo.js"
     },
     {
-        "implements": "part:@sanity/base/theme/variables/override-style",
-        "path": "./styles/variables.css"
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "./styles/variables.css"
     },
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",
