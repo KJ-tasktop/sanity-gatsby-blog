@@ -1,7 +1,11 @@
 // Load variables from `.env` as soon as possible
-require('dotenv').config({
-	path: `.env.${process.env.NODE_ENV || 'development'}`,
-})
+import dotenv from 'dotenv'
+
+dotenv.config({ path: `.env.${process.env.NODE_ENV || 'development'}` })
+
+// require('dotenv').config({
+// 	path: `.env.${process.env.NODE_ENV || 'development'}`,
+// })
 
 const clientConfig = require('./client-config')
 
