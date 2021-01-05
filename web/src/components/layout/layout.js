@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Header from './header'
+import Header from '../header/header'
 
-import '../styles/layout.css'
+import '../../styles/layout.css'
 import styles from './layout.module.css'
-import GlobalStyles from '../styles/GlobalStyles'
+import GlobalStyles from '../../styles/GlobalStyles'
 
 const ContentWrapper = styled.div`
 	width: 1200px;

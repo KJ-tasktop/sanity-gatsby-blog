@@ -7,6 +7,11 @@ export default {
 		{
 			type: 'string',
 			name: 'title',
+        },
+        {
+			name: 'image',
+			title: 'Image',
+			type: 'image',
 		},
 		{
 			type: 'array',

@@ -1,38 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
-import PortableText from './portableText'
-import clientConfig from '../../client-config'
+import PortableText from '../portableText'
+import clientConfig from '../../../client-config'
 // import ContentWrapper from '../containers/contentWrapper'
-import CTALink from './CTALink'
-import Video from './video'
+import CTALink from '../CTALink'
+import Video from '../video'
 
-const ComponentWrapper = styled.div`
-	width: 1200px;
-	display: flex;
-	flex-direction: row;
-`
-
-const LeftSide = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	padding: 24px;
-	width: 40%;
-
-	img {
-		width: 100%;
-	}
-`
-
-const RightSide = styled.div`
-	width: 60%;
-
-	img {
-		width: 100%;
-	}
-`
+import { ComponentWrapper, LeftSide, RightSide } from './twoColumnRow.styles'
 
 const maybeImage = (illustration) => {
 	let img = null

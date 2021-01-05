@@ -1,6 +1,6 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React, { useState } from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/layout/layout'
 
 const query = graphql`
 	query SiteTitleQuery {
@@ -8,6 +8,16 @@ const query = graphql`
 			title
 		}
 		nav: sanityNavMenuPrimary(_id: { eq: "primaryNavigation" }) {
+			image {
+				asset {
+					fixed(width: 200, height: 200) {
+						...GatsbySanityImageFixed
+					}
+					fluid(maxWidth: 400) {
+						...GatsbySanityImageFluid
+					}
+				}
+			}
 			left {
 				_key
 				title
@@ -42,6 +52,8 @@ function LayoutContainer(props) {
 	// function handleHideNav() {
 	// 	setShowNav(false)
 	// }
+
+	console.log('props: ', props)
 
 	return (
 		<StaticQuery

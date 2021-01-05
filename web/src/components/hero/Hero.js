@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
-import PortableText from './portableText'
-import clientConfig from '../../client-config'
+import PortableText from '../portableText'
+import clientConfig from '../../../client-config'
 // import ContentWrapper from '../containers/contentWrapper'
-import CTALink from './CTALink'
+import CTALink from '../CTALink'
 
 const ComponentWrapper = styled.div`
 	width: 1200px;

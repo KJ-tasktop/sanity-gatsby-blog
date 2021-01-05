@@ -5,8 +5,8 @@ import LayoutContainer from '../containers/layout'
 import SEO from '../components/seo'
 import GraphQLErrorList from '../components/graphql-error-list'
 
-import Hero from '../components/Hero'
-import TwoColumnRow from '../components/twoColumnRows'
+import Hero from '../components/hero/Hero'
+import TwoColumnRow from '../components/two-column-row/twoColumnRows'
 // import InfoRows from '../components/InfoRows'
 // import CTAColumns from '../components/cta-columns'
 // import CTA from '../components/cta'
@@ -30,13 +30,13 @@ export const query = graphql`
 			# 		hex
 			# 	}
 			title
-			# 	openGraph {
-			# 		title
-			# 		description
-			# 		image {
-			# 			...SanityImage
-			# 		}
-			# 	}
+			openGraph {
+				title
+				description
+				image {
+					...SanityImage
+				}
+			}
 		}
 	}
 `

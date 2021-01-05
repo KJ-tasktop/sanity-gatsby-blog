@@ -25,12 +25,11 @@ export default {
 				layout: 'tags',
 			},
 		},
-		{
-			name: 'author',
-			type: 'reference',
-			description: 'Publish an author and set a reference to them here.',
-			title: 'Author',
-			to: [{ type: 'author' }],
-		},
+        {
+            title: 'Open graph',
+            name: 'openGraph',
+            description: 'These will be the default meta tags on all pages that have not set their own',
+            type: 'openGraph'
+        },
 	],
 }
