@@ -16,6 +16,7 @@ import pageCategory from './documents/PageCategory'
 // import topLevel from './documents/TopLevelPage'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
+import youtube from './documents/youtube'
 
 import * as plugs from './plugs'
 import plugDefaultFields from './plugs/_plugDefaultFields'
@@ -61,6 +62,7 @@ export default createSchema({
 		bodyPortableText,
 		bioPortableText,
 		excerptPortableText,
+		youtube,
 	])
 	.concat(allPlugs)
 })

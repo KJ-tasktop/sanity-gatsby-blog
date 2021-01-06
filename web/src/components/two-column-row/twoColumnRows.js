@@ -7,67 +7,54 @@ import clientConfig from '../../../client-config'
 import CTALink from '../CTALink'
 import Video from '../video'
 
-import { ComponentWrapper, LeftSide, RightSide } from './twoColumnRow.styles'
+import { ComponentWrapper, CopyPanel, MediaPanel } from './twoColumnRow.styles'
 
 const maybeImage = (illustration) => {
 	let img = null
 	if (illustration && illustration.disabled !== true && illustration.image && illustration.image.asset) {
 		const fluidProps = getFluidGatsbyImage(illustration.image.asset._id, { maxWidth: 960 }, clientConfig.sanity)
 
-		img = <img className="w-full sm:h-64 mx-auto" src={fluidProps.src} alt={illustration.image.alt} />
+		img = <img src={fluidProps.src} alt={illustration.image.alt} />
 	}
 	return img
 }
 
-const InfoRow = ({ label, heading, text, cta, illustration, video }) => {
+const InfoRow = ({ label, heading, text, cta, illustration, video, columnSplit }) => {
 	const img = maybeImage(illustration)
 	return (
 		<ComponentWrapper>
-			<LeftSide>
+			<CopyPanel className={columnSplit || ''}>
 				<p>{label}</p>
 				<h1>{heading}</h1>
-				{text && (
-					<div>
-						<PortableText blocks={text} />
-					</div>
-				)}
-				{cta && cta.title && (
-					<CTALink
-						{...cta}
-						buttonActionClass="mx-auto ml-4 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-					/>
-				)}
-			</LeftSide>
-			{img && <RightSide>{img}</RightSide>}
+				{text && <PortableText blocks={text} />}
+				{cta && cta.title && <CTALink {...cta} />}
+			</CopyPanel>
+			{img && <MediaPanel className={columnSplit || ''}>{img}</MediaPanel>}
 			{video && (
-				<RightSide>
+				<MediaPanel className={columnSplit || ''}>
 					<Video video={video} />
-				</RightSide>
+				</MediaPanel>
 			)}
 		</ComponentWrapper>
 	)
 }
 
-const InfoRowFlipped = ({ label, heading, text, cta, illustration, video }) => {
+const InfoRowFlipped = ({ label, heading, text, cta, illustration, video, columnSplit }) => {
 	const img = maybeImage(illustration)
 	return (
 		<ComponentWrapper>
-			{img && <LeftSide>{img}</LeftSide>}
+			{img && <MediaPanel className={columnSplit || ''}>{img}</MediaPanel>}
 			{video && (
-				<LeftSide>
+				<MediaPanel className={columnSplit || ''}>
 					<Video />
-				</LeftSide>
+				</MediaPanel>
 			)}
-			<RightSide>
+			<CopyPanel className={columnSplit || ''}>
 				<p>{label}</p>
 				<h1>{heading}</h1>
-				{text && (
-					<div>
-						<PortableText blocks={text} />
-					</div>
-				)}
+				{text && <PortableText blocks={text} />}
 				{cta && cta.title && <CTALink {...cta} />}
-			</RightSide>
+			</CopyPanel>
 		</ComponentWrapper>
 	)
 }
@@ -75,7 +62,9 @@ const InfoRowFlipped = ({ label, heading, text, cta, illustration, video }) => {
 function TwoColumnRow({ title, rows }) {
 	const contentRows = (rows || [])
 		.filter((r) => !r.disabled)
-		.map((r, i) => (i % 2 === 0 ? <InfoRow key={r._key} {...r} /> : <InfoRowFlipped key={r._key} {...r} />))
+		.map((r) =>
+			r.leftSideWide !== true ? <InfoRow key={r._key} {...r} /> : <InfoRowFlipped key={r._key} {...r} />
+		)
 
 	console.log('contentRows: ', contentRows)
 	return (

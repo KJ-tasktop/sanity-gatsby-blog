@@ -10,10 +10,10 @@ const query = graphql`
 		nav: sanityNavMenuPrimary(_id: { eq: "primaryNavigation" }) {
 			image {
 				asset {
-					fixed(width: 200, height: 200) {
+					fixed(width: 150, height: 50) {
 						...GatsbySanityImageFixed
 					}
-					fluid(maxWidth: 400) {
+					fluid(maxWidth: 150) {
 						...GatsbySanityImageFluid
 					}
 				}

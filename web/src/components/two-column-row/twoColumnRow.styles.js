@@ -6,21 +6,37 @@ export const ComponentWrapper = styled.div`
 	flex-direction: row;
 `
 
-export const LeftSide = styled.div`
+export const CopyPanel = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
 	padding: 24px;
-	width: 40%;
+	width: 50%;
+
+	&.sixtyForty {
+		width: 40%;
+	}
+
+	&.fiftyFiveFortyFive {
+		width: 45%;
+	}
 
 	img {
 		width: 100%;
 	}
 `
 
-export const RightSide = styled.div`
-	width: 60%;
+export const MediaPanel = styled.div`
+	width: 50%;
+
+	&.sixtyForty {
+		width: 60%;
+	}
+
+	&.fiftyFiveFortyFive {
+		width: 55%;
+	}
 
 	img {
 		width: 100%;
