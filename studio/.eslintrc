@@ -1,0 +1,25 @@
+{
+    "extends": ["standard", "standard-react", "wesbos"],
+    "rules": {
+        "react/prop-types": 0,
+        "object-curly-spacing": ["error", "never"],
+        "no-console": 2,
+        "prettier/prettier": [
+            "error",
+            {
+                "trailingComma": "es5",
+                "singleQuote": true,
+                "printWidth": 120,
+                "semi": false,
+                "useTabs": true,
+                "tabWidth": 4
+            }
+        ]
+    },
+    "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.2.0"
+        }
+    }
+}

@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "Blog with Gatsby"
+    "name": "Tasktop Dot Com V2"
   },
   "api": {
     "projectId": "l7p1u5mb",
@@ -17,7 +17,8 @@
     "dashboard-widget-structure-menu",
     "dashboard-widget-document-list",
     "dashboard-widget-netlify",
-    "@sanity/studio-hints"
+    "@sanity/vision",
+    "mux-input"
   ],
   "parts": [
     {
@@ -25,20 +26,24 @@
       "path": "./schemas/schema.js"
     },
     {
-      "implements": "part:@sanity/base/theme/variables/override-style",
-      "path": "./src/styles/variables.css"
-    },
-    {
       "name": "part:@sanity/desk-tool/structure",
-      "path": "./src/structure/deskStructure.js"
+      "path": "./deskStructure.js"
     },
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./src/dashboardConfig.js"
     },
     {
-      "implements": "part:@sanity/default-layout/studio-hints-config",
-      "path": "./src/studioHintsConfig.js"
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./logo/myLogo.js"
+    },
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "./styles/variables.css"
+    },
+    {
+      "implements": "part:@sanity/production-preview/resolve-production-url",
+      "path": "./resolvePreviewUrl.js"
     }
   ]
 }

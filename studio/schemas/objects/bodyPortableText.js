@@ -1,3 +1,5 @@
+import youtube from "../documents/youtube"
+
 export default {
   name: 'bodyPortableText',
   type: 'array',
@@ -41,6 +43,9 @@ export default {
         ]
       },
       of: [{type: 'authorReference'}]
+    },
+    {
+      type: 'youtube'
     },
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array

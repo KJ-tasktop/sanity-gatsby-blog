@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root {
+	/* Brand colors */
+	--brand-primary: #82bc00;
+	--brand-primary--inverted: #ffffff;
+	--brand-secondary: #ffa800;
+	--brand-secondary--inverted: #3c1609;
+	--black: #000000;
+
+	/* Typography */
+	--font-family-sans-serif: 'Montserrat', sans-serif;
+	--font-size-base: 18px;
+	--text-color: var(--brand-secondary--inverted);
+
+	/* Main Navigation */
+	--main-navigation-color: var(--black);
+	--main-navigation-color--inverted: var(--brand-primary--inverted);
+}
+
+:global(.Navbar_root_2dO1G) {
+	align-items: center;
+}
